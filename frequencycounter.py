@@ -1,11 +1,13 @@
-import re
-value = input("Enter the value: ")
+text = input("Enter text: ")
 
-words = re.findall(r"[A-Za-z]+", value)
-word_count = {}
+words = text.lower().split()
+
+count = {}
+
 for word in words:
-    key = word.lower()
-    word_count[key] = word_count.get(key, 0) + 1
+    if word in count:
+        count[word] += 1
+    else:
+        count[word] = 1
 
-print("Word frequency:", word_count)
-    
+print(count)
